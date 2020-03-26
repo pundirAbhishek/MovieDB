@@ -4,15 +4,15 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.android.moviedb.databinding.HomeGridViewItemBinding
+import com.android.moviedb.databinding.HomeListViewItemBinding
 import com.android.moviedb.network.Movie
 
-class HomeGridAdapter(private val onClickListener: OnClickListener) :
-    androidx.recyclerview.widget.ListAdapter<Movie, HomeGridAdapter.MovieViewHolder>(DiffCallback) {
+class HomeMoviesAdapter(private val onClickListener: OnClickListener) :
+    androidx.recyclerview.widget.ListAdapter<Movie, HomeMoviesAdapter.MovieViewHolder>(DiffCallback) {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        return MovieViewHolder(HomeGridViewItemBinding.inflate(LayoutInflater.from(parent.context)))
+        return MovieViewHolder(HomeListViewItemBinding.inflate(LayoutInflater.from(parent.context)))
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
@@ -34,7 +34,7 @@ class HomeGridAdapter(private val onClickListener: OnClickListener) :
 
     }
 
-    class MovieViewHolder(private val binding: HomeGridViewItemBinding) :
+    class MovieViewHolder(private val binding: HomeListViewItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(movie: Movie) {

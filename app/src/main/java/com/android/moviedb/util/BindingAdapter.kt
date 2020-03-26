@@ -5,8 +5,8 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.android.moviedb.R
 import com.android.moviedb.network.Movie
-import com.android.moviedb.network.PopularMovie
-import com.android.moviedb.ui.HomeGridAdapter
+import com.android.moviedb.network.MovieResponse
+import com.android.moviedb.ui.HomeMoviesAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
@@ -30,7 +30,7 @@ fun bindImage(imageView: ImageView, movie: Movie) {
  * When there is no Movie data (data is null), hide the [RecyclerView], otherwise show it.
  */
 @BindingAdapter("listData")
-fun bindRecyclerView(recyclerView: RecyclerView, data: PopularMovie<Movie>?) {
-    val adapter = recyclerView.adapter as HomeGridAdapter
+fun bindRecyclerView(recyclerView: RecyclerView, data: MovieResponse<Movie>?) {
+    val adapter = recyclerView.adapter as HomeMoviesAdapter
     adapter.submitList(data?.results)
 }

@@ -1,21 +1,16 @@
 package com.android.moviedb.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import android.widget.Toast.LENGTH_SHORT
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.moviedb.databinding.FragmentHomeBinding
-import com.android.moviedb.network.Movie
-import com.android.moviedb.network.PopularMovie
-import java.time.Duration
 
 class HomeFragment : Fragment() {
 
@@ -35,12 +30,34 @@ class HomeFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
-        binding.moviesGrid.apply {
+        binding.popularMoviesList.apply {
             setHasFixedSize(true)
-            adapter = HomeGridAdapter(HomeGridAdapter.OnClickListener {
+            adapter = HomeMoviesAdapter(HomeMoviesAdapter.OnClickListener {
                 Toast.makeText(
                     context,
                     viewModel.popularMovies.value?.results?.size.toString(),
+                    LENGTH_SHORT
+                ).show()
+            })
+        }
+
+        binding.topRatedMoviesList.apply {
+            setHasFixedSize(true)
+            adapter = HomeMoviesAdapter(HomeMoviesAdapter.OnClickListener {
+                Toast.makeText(
+                    context,
+                    viewModel.topRatedMovies.value?.results?.size.toString(),
+                    LENGTH_SHORT
+                ).show()
+            })
+        }
+
+        binding.upcomingMoviesList.apply {
+            setHasFixedSize(true)
+            adapter = HomeMoviesAdapter(HomeMoviesAdapter.OnClickListener {
+                Toast.makeText(
+                    context,
+                    viewModel.upcomingMovies.value?.results?.size.toString(),
                     LENGTH_SHORT
                 ).show()
             })

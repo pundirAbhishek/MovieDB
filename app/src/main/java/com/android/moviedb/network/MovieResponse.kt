@@ -2,7 +2,7 @@ package com.android.moviedb.network
 
 import com.squareup.moshi.Json
 
-data class PopularMovie<T>(
+data class MovieResponse<T>(
     val page: Int,
     val results: List<T>,
     @Json(name = "total_results") val totalResults: Int,
