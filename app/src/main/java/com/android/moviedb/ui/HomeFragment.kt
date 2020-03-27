@@ -7,10 +7,16 @@ import android.view.ViewGroup
 import android.widget.Toast
 import android.widget.Toast.LENGTH_SHORT
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.android.moviedb.R
 import com.android.moviedb.databinding.FragmentHomeBinding
+import timber.log.Timber
 
 class HomeFragment : Fragment() {
 
@@ -33,37 +39,32 @@ class HomeFragment : Fragment() {
         binding.popularMoviesList.apply {
             setHasFixedSize(true)
             adapter = HomeMoviesAdapter(HomeMoviesAdapter.OnClickListener {
-                Toast.makeText(
-                    context,
-                    viewModel.popularMovies.value?.results?.size.toString(),
-                    LENGTH_SHORT
-                ).show()
+                viewModel.displayMovieDetail(it)
             })
         }
 
         binding.topRatedMoviesList.apply {
             setHasFixedSize(true)
             adapter = HomeMoviesAdapter(HomeMoviesAdapter.OnClickListener {
-                Toast.makeText(
-                    context,
-                    viewModel.topRatedMovies.value?.results?.size.toString(),
-                    LENGTH_SHORT
-                ).show()
+                viewModel.displayMovieDetail(it)
             })
         }
 
         binding.upcomingMoviesList.apply {
             setHasFixedSize(true)
             adapter = HomeMoviesAdapter(HomeMoviesAdapter.OnClickListener {
-                Toast.makeText(
-                    context,
-                    viewModel.upcomingMovies.value?.results?.size.toString(),
-                    LENGTH_SHORT
-                ).show()
+                viewModel.displayMovieDetail(it)
             })
         }
 
-        return binding.root
+        viewModel.navigateToMovieDetail.observe(viewLifecycleOwner, Observer {
+            if (it != null) {
+                this.findNavController()
+                    .navigate(HomeFragmentDirections.actionHomeFragmentToDetailFragment(it))
+                viewModel.displayMovieDetailComplete()
+            }
+        })
 
+        return binding.root
     }
 }

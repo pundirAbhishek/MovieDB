@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto"/>
+
+
+<!--<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:motion="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto">-->
+
+<!--    <Transition-->
+<!--        motion:constraintSetEnd="@+id/end"-->
+<!--        motion:constraintSetStart="@+id/start"-->
+<!--        motion:duration="250"-->
+<!--        motion:motionInterpolator="linear">-->
+
+<!--        <OnSwipe-->
+<!--            motion:dragDirection="dragUp"-->
+<!--            motion:touchAnchorId="@+id/motionLayout"-->
+<!--            motion:touchAnchorSide="bottom" />-->
+<!--    </Transition>-->
+
+<!--    <ConstraintSet android:id="@+id/start">-->
+<!--        <Constraint-->
+<!--            android:id="@id/motionLayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="300dp"-->
+<!--            motion:layout_constraintTop_toTopOf="parent" />-->
+
+<!--        <Constraint-->
+<!--            android:id="@id/background"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="300dp"-->
+<!--            motion:layout_constraintTop_toTopOf="parent" />-->
+
+
+<!--        <Constraint-->
+<!--            android:id="@id/detail_scroll_view"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            motion:layout_constraintBottom_toBottomOf="parent"-->
+<!--            motion:layout_constraintTop_toBottomOf="@+id/motionLayout" />-->
+
+<!--        &lt;!&ndash;        <Constraint&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:id="@id/fab"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:layout_width="wrap_content"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:layout_marginTop="8dp"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:layout_marginRight="8dp"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:visibility="invisible"&ndash;&gt;-->
+<!--        &lt;!&ndash;            motion:layout_constraintRight_toRightOf="parent"&ndash;&gt;-->
+<!--        &lt;!&ndash;            motion:layout_constraintTop_toBottomOf="parent" />&ndash;&gt;-->
+
+<!--        <Constraint-->
+<!--            android:id="@id/fab"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginEnd="8dp"-->
+
+<!--            motion:layout_constraintBottom_toBottomOf="@id/motionLayout"-->
+<!--            motion:layout_constraintEnd_toEndOf="@id/motionLayout"-->
+<!--            motion:layout_constraintTop_toBottomOf="@id/motionLayout" />-->
+
+
+<!--    </ConstraintSet>-->
+
+<!--    <ConstraintSet android:id="@+id/end">-->
+<!--        <Constraint-->
+<!--            android:id="@id/motionLayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="56dp"-->
+<!--            motion:layout_constraintTop_toTopOf="parent"-->
+<!--            motion:progress="1" />-->
+
+<!--        <Constraint-->
+<!--            android:id="@id/background"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="56dp"-->
+<!--            motion:layout_constraintTop_toTopOf="parent"-->
+<!--            motion:progress="1" />-->
+
+<!--        <Constraint-->
+<!--            android:id="@id/detail_scroll_view"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            motion:layout_constraintBottom_toBottomOf="parent"-->
+<!--            motion:layout_constraintTop_toBottomOf="@+id/motionLayout" />-->
+
+<!--        &lt;!&ndash;        <Constraint&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:id="@id/fab"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:layout_width="wrap_content"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:layout_marginRight="8dp"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:layout_marginBottom="8dp"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:visibility="visible"&ndash;&gt;-->
+<!--        &lt;!&ndash;            motion:layout_constraintBottom_toBottomOf="parent"&ndash;&gt;-->
+<!--        &lt;!&ndash;            motion:layout_constraintRight_toRightOf="parent" />&ndash;&gt;-->
+
+<!--        <Constraint-->
+<!--            android:id="@id/fab"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginEnd="8dp"-->
+<!--            android:visibility="invisible"-->
+
+<!--            motion:layout_constraintBottom_toBottomOf="@id/motionLayout"-->
+<!--            motion:layout_constraintEnd_toEndOf="@id/motionLayout"-->
+<!--            motion:layout_constraintTop_toBottomOf="@id/motionLayout"-->
+
+<!--            />-->
+
+
+<!--        &lt;!&ndash; This gives us our parallax effect &ndash;&gt;-->
+<!--        <Constraint android:id="@id/details_backdrop">-->
+<!--            <Transform android:translationY="-80dp" />-->
+<!--        </Constraint>-->
+
+
+<!--    </ConstraintSet>-->
+<!--</MotionScene>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:motion="http://schemas.android.com/apk/res-auto">-->
+
+<!--    <Transition-->
+<!--        app:constraintSetEnd="@+id/end"-->
+<!--        app:constraintSetStart="@+id/start"-->
+<!--        app:duration="200">-->
+
+<!--        <OnSwipe-->
+<!--            app:dragDirection="dragUp"-->
+<!--            app:moveWhenScrollAtTop="true"-->
+<!--            app:touchAnchorId="@id/details_rv"-->
+<!--            app:touchAnchorSide="top" />-->
+
+<!--        <KeyFrameSet>-->
+<!--            &lt;!&ndash; See https://issuetracker.google.com/issues/112546214 for why we're using percentX-->
+<!--                 instead of percentY &ndash;&gt;-->
+<!--            <KeyPosition-->
+<!--                app:framePosition="20"-->
+<!--                app:keyPositionType="pathRelative"-->
+<!--                app:motionTarget="@id/details_poster"-->
+<!--                app:percentX="0.7" />-->
+
+<!--            <KeyPosition-->
+<!--                app:framePosition="50"-->
+<!--                app:keyPositionType="pathRelative"-->
+<!--                app:motionTarget="@id/details_poster"-->
+<!--                app:percentX="0.6" />-->
+
+<!--            &lt;!&ndash; This looks weird. We need a hard change from elevated to not-elevated at 20% so we set 2 key-->
+<!--                 attributes, one at 20% and other at 21%. If we don't do this, we get an interpolated elevation. &ndash;&gt;-->
+<!--            <KeyAttribute-->
+<!--                android:elevation="@dimen/details_poster_elevation"-->
+<!--                app:framePosition="20"-->
+<!--                app:motionTarget="@id/details_poster" />-->
+
+<!--            <KeyAttribute-->
+<!--                android:elevation="0dp"-->
+<!--                app:framePosition="21"-->
+<!--                app:motionTarget="@id/details_poster" />-->
+
+<!--        </KeyFrameSet>-->
+
+<!--    </Transition>-->
+
+<!--    <ConstraintSet android:id="@+id/start">-->
+
+<!--        <Constraint-->
+<!--            android:id="@id/details_rv"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/details_poster" />-->
+
+<!--        <Constraint-->
+<!--            android:id="@id/details_backdrop"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_marginBottom="80dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="@id/details_poster_anchor"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="@id/details_poster_anchor">-->
+
+<!--            <CustomAttribute-->
+<!--                app:attributeName="foreground"-->
+<!--                app:customColorDrawableValue="@android:color/transparent" />-->
+
+<!--        </Constraint>-->
+
+
+<!--        <Constraint-->
+<!--            android:id="@id/details_poster"-->
+<!--            android:layout_width="80dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:elevation="@dimen/details_poster_elevation"-->
+<!--            app:layout_constraintBottom_toBottomOf="@id/details_backdrop"-->
+
+<!--            app:layout_constraintDimensionRatio="h,1:1.5"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/details_backdrop"-->
+
+
+<!--            />-->
+
+<!--        <Constraint-->
+<!--            android:id="@id/details_title"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="24dp"-->
+<!--            android:visibility="visible"-->
+<!--            app:layout_constraintStart_toEndOf="@id/details_poster"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/details_backdrop"-->
+
+<!--            />-->
+
+<!--        <Constraint-->
+<!--            android:id="@id/details_subtitle"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="24dp"-->
+<!--            android:layout_marginTop="4dp"-->
+<!--            android:visibility="visible"-->
+<!--            app:layout_constraintStart_toEndOf="@id/details_poster"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/details_title" />-->
+
+
+<!--        <Constraint-->
+<!--            android:id="@id/favourite_fab"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginEnd="8dp"-->
+
+<!--            motion:layout_constraintBottom_toBottomOf="@id/details_backdrop"-->
+<!--            motion:layout_constraintEnd_toEndOf="@id/details_backdrop"-->
+<!--            motion:layout_constraintTop_toBottomOf="@id/details_backdrop"-->
+
+<!--            />-->
+
+
+<!--    </ConstraintSet>-->
+
+<!--    <ConstraintSet android:id="@+id/end">-->
+<!--        <Constraint-->
+<!--            android:id="@id/details_rv"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/details_backdrop" />-->
+
+<!--        <Constraint-->
+<!--            android:id="@id/details_backdrop"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="@id/details_status_bar_anchor"-->
+<!--            app:layout_constraintEnd_toEndOf="@id/details_status_bar_anchor"-->
+<!--            app:layout_constraintStart_toStartOf="@id/details_status_bar_anchor"-->
+<!--            app:layout_constraintTop_toTopOf="@id/details_status_bar_anchor">-->
+
+<!--            <CustomAttribute-->
+<!--                app:attributeName="foreground"-->
+<!--                app:customColorDrawableValue="@color/status_bar_scrim_translucent_dark" />-->
+
+<!--        </Constraint>-->
+
+<!--        <Constraint-->
+<!--            android:id="@id/details_poster"-->
+<!--            android:layout_width="80dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:elevation="0dp"-->
+<!--            app:layout_constraintDimensionRatio="h,1:1.5"-->
+
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/details_backdrop"-->
+
+<!--            />-->
+
+
+<!--        <Constraint-->
+<!--            android:id="@id/favourite_fab"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginEnd="8dp"-->
+<!--            android:visibility="invisible"-->
+
+<!--            motion:layout_constraintBottom_toBottomOf="@id/details_backdrop"-->
+<!--            motion:layout_constraintEnd_toEndOf="@id/details_backdrop"-->
+<!--            motion:layout_constraintTop_toBottomOf="@id/details_backdrop"-->
+
+<!--            />-->
+
+<!--        <Constraint-->
+<!--            android:id="@id/details_title"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="64dp"-->
+<!--            android:layout_marginEnd="48dp"-->
+<!--            android:elevation="@dimen/details_appbar_elevation"-->
+
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--        <Constraint-->
+<!--            android:id="@id/details_subtitle"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:alpha="0"-->
+<!--            android:elevation="@dimen/details_appbar_elevation"-->
+<!--            android:visibility="invisible"-->
+<!--            app:layout_constraintEnd_toEndOf="@id/details_title"-->
+<!--            app:layout_constraintStart_toStartOf="@id/details_title"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/details_title" />-->
+
+<!--    </ConstraintSet>-->
+<!--</MotionScene>-->

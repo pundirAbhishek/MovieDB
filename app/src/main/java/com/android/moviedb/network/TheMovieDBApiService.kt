@@ -11,5 +11,17 @@ interface TheMovieDBApiService {
         @Path("category") category: String, @Query("api_key") api_key: String, @Query(
             "page"
         ) page: Int
-    ): MovieResponse<Movie>
+    ): MoviesResponse<Movie>
+
+    @GET("movie/{movie_id}/reviews")
+    suspend fun getMovieReviews(
+        @Path("movie_id") category: Int, @Query("api_key") api_key: String, @Query(
+            "page"
+        ) page: Int
+    ): MovieReviewsResponse
+
+    @GET("movie/{movie_id}/videos")
+    suspend fun getMovieVideos(
+        @Path("movie_id") category: Int, @Query("api_key") api_key: String
+    ): MovieVideosResponse
 }

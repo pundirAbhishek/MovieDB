@@ -51,14 +51,11 @@
                 android:id="@+id/popular_movie_view_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:text="@string/view_all"
                 android:textColor="@android:color/holo_blue_dark"
-                app:layout_constraintBottom_toTopOf="@+id/popular_movies_list"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/popular_movie_text" />
+                app:layout_constraintBaseline_toBaselineOf="@+id/popular_movie_description"
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/popular_movies_list"
@@ -109,14 +106,11 @@
                 android:id="@+id/top_rated_movie_view_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:text="@string/view_all"
                 android:textColor="@android:color/holo_blue_dark"
-                app:layout_constraintBottom_toTopOf="@+id/top_rated_movies_list"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/top_rated_movie_text" />
+                app:layout_constraintBaseline_toBaselineOf="@+id/top_rated_movie_description"
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/top_rated_movies_list"
@@ -167,14 +161,11 @@
                 android:id="@+id/upcoming_movie_view_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:text="@string/view_all"
                 android:textColor="@android:color/holo_blue_dark"
-                app:layout_constraintBottom_toTopOf="@+id/upcoming_movies_list"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/upcoming_movie_text" />
+                app:layout_constraintBaseline_toBaselineOf="@+id/upcoming_movie_description"
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/upcoming_movies_list"
@@ -191,6 +182,8 @@
                 app:layout_constraintTop_toBottomOf="@id/upcoming_movie_description"
                 app:listData="@{viewModel.upcomingMovies}" />
 
+
+            <!-- TODO Add Loading Bar -->
 
             <!--        <ImageView-->
             <!--            android:id="@+id/status_image"-->

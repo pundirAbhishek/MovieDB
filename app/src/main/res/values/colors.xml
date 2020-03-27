@@ -16,7 +16,10 @@
     <color name="vote_normal">#757575</color>
     <color name="vote_bad">#f44336</color>
 
-<!--    <color name="colorPrimary">#212121</color>-->
+    <color name="status_bar_scrim_translucent_dark">#8F222222</color>
+
+
+    <!--    <color name="colorPrimary">#212121</color>-->
 <!--    <color name="colorPrimaryDark">#000000</color>-->
 <!--    <color name="colorAccent">#FF5252</color>-->
 
