@@ -46,6 +46,9 @@ android {
             sourceCompatibility JavaVersion.VERSION_1_8
             targetCompatibility JavaVersion.VERSION_1_8
         }
+        kotlinOptions {
+            jvmTarget = JavaVersion.VERSION_1_8.toString()
+        }
     }
 
 
@@ -89,7 +92,10 @@ dependencies {
     implementation "androidx.paging:paging-runtime:2.1.2"
 
     // Motion Layout
-        implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta4'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta4'
+
+    // Material Design
+    implementation 'com.google.android.material:material:1.1.0'
 
 
 }

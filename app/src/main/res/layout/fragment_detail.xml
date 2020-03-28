@@ -176,7 +176,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_small"
                 android:layout_marginBottom="@dimen/spacing_small"
-                android:background="@android:color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/movie_overview_card">
@@ -198,7 +197,6 @@
                         android:id="@+id/movie_videos"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@android:color/white"
                         android:orientation="horizontal"
                         android:paddingTop="@dimen/spacing_small"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

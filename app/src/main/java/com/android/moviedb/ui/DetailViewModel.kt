@@ -50,37 +50,45 @@ class DetailViewModel(movie: Movie) : ViewModel() {
     val intentToViewReview: LiveData<MovieReview>
         get() = _intentToViewReview
 
+    // The internal MutableLiveData MovieDetails that stores the result of the request
+    private val _movieDetails = MutableLiveData<MovieDetailsResponse>()
+    // The external immutable LiveData for the request MovieDetails
+    val movieDetails: LiveData<MovieDetailsResponse>
+        get() = _movieDetails
+
+    // The internal MutableLiveData MovieDetails that stores the result of the request
+    private val _movieCast = MutableLiveData<CastResponse>()
+    // The external immutable LiveData for the request MovieDetails
+    val movieCast: LiveData<CastResponse>
+        get() = _movieCast
+
+    // The internal MutableLiveData MovieDetails that stores the result of the request
+    private val _similarMovies = MutableLiveData<MoviesResponse>()
+    // The external immutable LiveData for the request MovieDetails
+    val similarMovies: LiveData<MoviesResponse>
+        get() = _similarMovies
+
 
     init {
         _selectedMovie.value = movie
-        launchMovieVideosRequest()
-        launchMovieReviewsRequest()
+//        launchMovieVideosRequest()
+//        launchMovieReviewsRequest()
+
+        launchMovieDetailsRequest()
     }
 
-    private fun launchMovieVideosRequest() {
+    private fun launchMovieDetailsRequest() {
         viewModelScope.launch {
             try {
                 _status.value = MovieDBApiStatus.LOADING
-                val videos = getMovieVideos()
+                val movieDetails = getMovieDetails()
                 _status.value = MovieDBApiStatus.DONE
-                _movieVideos.value = videos
-                Timber.i("Top Rated %s", videos.toString())
-            } catch (t: Throwable) {
-                _status.value = MovieDBApiStatus.ERROR
-                Timber.i(t)
-            }
-
-        }
-    }
-
-    private fun launchMovieReviewsRequest() {
-        viewModelScope.launch {
-            try {
-                _status.value = MovieDBApiStatus.LOADING
-                val reviews = getMovieReviews()
-                _status.value = MovieDBApiStatus.DONE
-                _movieReviews.value = reviews
-                Timber.i("Top Rated %s", reviews.toString())
+                _movieDetails.value = movieDetails
+                _movieReviews.value = _movieDetails.value!!.reviews
+                _movieVideos.value = _movieDetails.value!!.videos
+                _movieCast.value = _movieDetails.value!!.credits
+                _similarMovies.value = _movieDetails.value!!.similar
+                Timber.i("Top Rated %s", movieDetails.toString())
             } catch (t: Throwable) {
                 _status.value = MovieDBApiStatus.ERROR
                 Timber.i(t)
@@ -90,16 +98,11 @@ class DetailViewModel(movie: Movie) : ViewModel() {
     }
 
 
-    private suspend fun getMovieVideos() = withContext(Dispatchers.IO) {
-        Timber.i("Get Movie Videos")
-        TheMovieDBApi.retrofitService.getMovieVideos(_selectedMovie.value!!.id, API_KEY)
-
+    private suspend fun getMovieDetails() = withContext(Dispatchers.IO) {
+        Timber.i("Get Movie Details")
+        TheMovieDBApi.retrofitService.getMovieDetails(_selectedMovie.value!!.id, API_KEY)
     }
 
-    private suspend fun getMovieReviews(page: Int = 1) = withContext(Dispatchers.IO) {
-        Timber.i("Get Movie Reviews")
-        TheMovieDBApi.retrofitService.getMovieReviews(_selectedMovie.value!!.id, API_KEY, page)
-    }
 
     fun intentToPlayVideo(video: MovieVideo) {
         _intentToPlayVideo.value = video

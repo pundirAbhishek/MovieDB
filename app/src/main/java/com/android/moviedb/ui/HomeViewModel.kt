@@ -21,21 +21,21 @@ import timber.log.Timber
 class HomeViewModel : ViewModel() {
 
     // The internal MutableLiveData PopularMovie that stores the result of the request
-    private val _popularMovies = MutableLiveData<MoviesResponse<Movie>>()
+    private val _popularMovies = MutableLiveData<MoviesResponse>()
     // The external immutable LiveData for the request PopularMovie
-    val popularMovies: LiveData<MoviesResponse<Movie>>
+    val popularMovies: LiveData<MoviesResponse>
         get() = _popularMovies
 
     // The internal MutableLiveData TopRatedMovie that stores the result of the request
-    private val _topRatedMovies = MutableLiveData<MoviesResponse<Movie>>()
+    private val _topRatedMovies = MutableLiveData<MoviesResponse>()
     // The external immutable LiveData for the request TopRatedMovies
-    val topRatedMovies: LiveData<MoviesResponse<Movie>>
+    val topRatedMovies: LiveData<MoviesResponse>
         get() = _topRatedMovies
 
     // The internal MutableLiveData UpcomingMovie that stores the result of the request
-    private val _upcomingMovies = MutableLiveData<MoviesResponse<Movie>>()
+    private val _upcomingMovies = MutableLiveData<MoviesResponse>()
     // The external immutable LiveData for the request UpcomingMovies
-    val upcomingMovies: LiveData<MoviesResponse<Movie>>
+    val upcomingMovies: LiveData<MoviesResponse>
         get() = _upcomingMovies
 
     // The internal MutableLiveData String that stores the status of the most recent request

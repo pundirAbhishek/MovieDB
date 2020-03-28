@@ -34,7 +34,7 @@ fun bindImage(imageView: ImageView, movie: Movie) {
  * When there is no Movie data (data is null), hide the [RecyclerView], otherwise show it.
  */
 @BindingAdapter("listData")
-fun bindRecyclerView(recyclerView: RecyclerView, data: MoviesResponse<Movie>?) {
+fun bindRecyclerView(recyclerView: RecyclerView, data: MoviesResponse?) {
     val adapter = recyclerView.adapter as HomeMoviesAdapter
     adapter.submitList(data?.movies)
 }
