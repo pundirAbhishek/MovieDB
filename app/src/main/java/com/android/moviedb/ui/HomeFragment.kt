@@ -68,18 +68,15 @@ class HomeFragment : Fragment() {
 
         return binding.root
     }
-//
-//    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-//        super.onCreateOptionsMenu(menu, inflater)
-//        inflater.inflate(R.menu.overflow_menu, menu)
-//    }
-//
-//    // TODO Implement Click handles
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        val navController = view!!.findNavController()
-//        return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
-//    }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.overflow_menu, menu)
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val navController = view!!.findNavController()
+        return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
+    }
 
 }

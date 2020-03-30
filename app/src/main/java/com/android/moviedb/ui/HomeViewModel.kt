@@ -4,10 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.android.moviedb.BuildConfig
 import com.android.moviedb.network.Movie
 import com.android.moviedb.network.MovieDBApiStatus
-import com.android.moviedb.network.MoviesResponse
+import com.android.moviedb.network.PagedResponse
 import com.android.moviedb.network.TheMovieDBApi
 import com.android.moviedb.util.API_KEY
 import com.android.moviedb.util.CATEGORY_POPULAR
@@ -21,21 +20,21 @@ import timber.log.Timber
 class HomeViewModel : ViewModel() {
 
     // The internal MutableLiveData PopularMovie that stores the result of the request
-    private val _popularMovies = MutableLiveData<MoviesResponse>()
+    private val _popularMovies = MutableLiveData<PagedResponse<Movie>>()
     // The external immutable LiveData for the request PopularMovie
-    val popularMovies: LiveData<MoviesResponse>
+    val popularMovies: LiveData<PagedResponse<Movie>>
         get() = _popularMovies
 
     // The internal MutableLiveData TopRatedMovie that stores the result of the request
-    private val _topRatedMovies = MutableLiveData<MoviesResponse>()
+    private val _topRatedMovies = MutableLiveData<PagedResponse<Movie>>()
     // The external immutable LiveData for the request TopRatedMovies
-    val topRatedMovies: LiveData<MoviesResponse>
+    val topRatedMovies: LiveData<PagedResponse<Movie>>
         get() = _topRatedMovies
 
     // The internal MutableLiveData UpcomingMovie that stores the result of the request
-    private val _upcomingMovies = MutableLiveData<MoviesResponse>()
+    private val _upcomingMovies = MutableLiveData<PagedResponse<Movie>>()
     // The external immutable LiveData for the request UpcomingMovies
-    val upcomingMovies: LiveData<MoviesResponse>
+    val upcomingMovies: LiveData<PagedResponse<Movie>>
         get() = _upcomingMovies
 
     // The internal MutableLiveData String that stores the status of the most recent request
@@ -62,7 +61,7 @@ class HomeViewModel : ViewModel() {
                 val movies = getPopularMovies()
                 _status.value = MovieDBApiStatus.DONE
                 _popularMovies.value = movies
-                Timber.i("Popular %s", movies.movies.size.toString())
+                Timber.i("Popular %s", movies.results.size.toString())
             } catch (t: Throwable) {
                 _status.value = MovieDBApiStatus.ERROR
                 Timber.i(t)
@@ -77,7 +76,7 @@ class HomeViewModel : ViewModel() {
                 val movies = getTopRatedMovies()
                 _status.value = MovieDBApiStatus.DONE
                 _topRatedMovies.value = movies
-                Timber.i("Top Rated %s", movies.movies.size.toString())
+                Timber.i("Top Rated %s", movies.results.size.toString())
             } catch (t: Throwable) {
                 _status.value = MovieDBApiStatus.ERROR
                 Timber.i(t)
@@ -92,7 +91,7 @@ class HomeViewModel : ViewModel() {
                 val movies = getUpcomingMovies()
                 _status.value = MovieDBApiStatus.DONE
                 _upcomingMovies.value = movies
-                Timber.i("Upcoming %s", movies.movies.size.toString())
+                Timber.i("Upcoming %s", movies.results.size.toString())
             } catch (t: Throwable) {
                 _status.value = MovieDBApiStatus.ERROR
                 Timber.i(t)

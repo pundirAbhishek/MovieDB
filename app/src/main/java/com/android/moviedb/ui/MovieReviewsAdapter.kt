@@ -4,27 +4,27 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.android.moviedb.databinding.ListItemMovieReviewBinding
-import com.android.moviedb.network.MovieReview
+import com.android.moviedb.databinding.ListItemReviewBinding
+import com.android.moviedb.network.Review
 
 class MovieReviewsAdapter(val onClickListener: OnClickListener) :
-    androidx.recyclerview.widget.ListAdapter<MovieReview, MovieReviewsAdapter.MovieReviewViewHolder>(
+    androidx.recyclerview.widget.ListAdapter<Review, MovieReviewsAdapter.MovieReviewViewHolder>(
         DiffCallback
     ) {
 
-    companion object DiffCallback : DiffUtil.ItemCallback<MovieReview>() {
-        override fun areItemsTheSame(oldItem: MovieReview, newItem: MovieReview): Boolean {
+    companion object DiffCallback : DiffUtil.ItemCallback<Review>() {
+        override fun areItemsTheSame(oldItem: Review, newItem: Review): Boolean {
             return oldItem === newItem
         }
 
-        override fun areContentsTheSame(oldItem: MovieReview, newItem: MovieReview): Boolean {
+        override fun areContentsTheSame(oldItem: Review, newItem: Review): Boolean {
             return oldItem.id == newItem.id
         }
     }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieReviewViewHolder {
-        val view = ListItemMovieReviewBinding.inflate(LayoutInflater.from(parent.context))
+        val view = ListItemReviewBinding.inflate(LayoutInflater.from(parent.context))
         return MovieReviewViewHolder(view)
     }
 
@@ -36,9 +36,9 @@ class MovieReviewsAdapter(val onClickListener: OnClickListener) :
         holder.bind(review)
     }
 
-    class MovieReviewViewHolder(private val binding: ListItemMovieReviewBinding) :
+    class MovieReviewViewHolder(private val binding: ListItemReviewBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(review: MovieReview) {
+        fun bind(review: Review) {
             binding.review = review
 
             // This is important, because it forces the data binding to execute immediately,
@@ -47,7 +47,7 @@ class MovieReviewsAdapter(val onClickListener: OnClickListener) :
         }
     }
 
-    class OnClickListener(val onClickListener: (review: MovieReview) -> Unit) {
-        fun onClick(review: MovieReview) = onClickListener(review)
+    class OnClickListener(val onClickListener: (review: Review) -> Unit) {
+        fun onClick(review: Review) = onClickListener(review)
     }
 }

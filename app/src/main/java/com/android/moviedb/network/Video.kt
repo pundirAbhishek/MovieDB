@@ -4,7 +4,7 @@ import com.android.moviedb.util.SITE_YOUTUBE
 import com.squareup.moshi.Json
 import java.util.*
 
-data class MovieVideo(
+data class Video(
     val id: String,
     val key: String,
     val name: String,

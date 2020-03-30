@@ -2,7 +2,7 @@ package com.android.moviedb.network
 
 import com.squareup.moshi.Json
 
-data class Person(
+data class PersonResponse(
     val birthday: String?,
     val id: Int,
     val name: String,
@@ -16,5 +16,10 @@ data class Person(
     @Json(name = "deathday") val deathDay: String?,
     @Json(name = "place_of_birth") val placeOfBirth: String?,
     @Json(name = "profile_path") val profilePath: String?,
-    @Json(name = "imdb_id") val imdbId: String
+    @Json(name = "imdb_id") val imdbId: String,
+
+    // Appended Tv Credits , Movie Credits in Person Details Request
+    @Json(name = "movie_credits") val movieCredits: CreditsResponse<PersonMovieCredit>,
+    @Json(name = "tv_credits") val tvCredits: CreditsResponse<PersonTvCredit>
+
 )

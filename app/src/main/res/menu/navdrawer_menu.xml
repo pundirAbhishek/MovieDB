@@ -2,21 +2,29 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
+
         <item
-            android:id="@+id/drawer_item_explore"
+            android:id="@+id/drawer_item_tv"
+            android:checkable="true"
             android:checked="true"
             android:icon="@drawable/ic_explore"
-            android:title="@string/navigation_item_explore"/>
+            android:title="@string/navigation_item_tv" />
+
         <item
             android:id="@+id/drawer_item_favorites"
+            android:checkable="true"
             android:icon="@drawable/ic_favorite_black"
-            android:title="@string/navigation_item_favorites"/>
+            android:title="@string/navigation_item_favorites" />
     </group>
 
-    <item
-        android:id="@+id/drawer_item_signout"
-        android:icon="@drawable/logout"
-        android:title="@string/navigation_item_signout" />
+    <group
+        android:id="@+id/menu_bottom"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/drawer_item_signout"
+            android:icon="@drawable/logout"
+            android:title="@string/navigation_item_signout" />
+    </group>
 
 
 </menu>

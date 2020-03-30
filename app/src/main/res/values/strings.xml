@@ -98,6 +98,14 @@
     <string name="upcoming">Upcoming Movies</string>
     <string name="upcoming_movies_description">Stay updated with the latest movies</string>
 
+    <string name="popular_series">Popular TV Series</string>
+    <string name="most_popular_series">Most Popular TV Series</string>
+    <string name="top_rated_series">Top Rated TV Series</string>
+    <string name="on_air_series">On Air TV Series</string>
+    <string name="top_rated_series_description">Highest rated series of all time</string>
+    <string name="on_air_series_description">Shows that are currently on air</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
@@ -110,6 +118,8 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="navigation_item_explore">Explore</string>
     <string name="navigation_item_favorites">Favorites</string>
+    <string name="navigation_item_tv">TV Series</string>
+
 
     <!-- Actions (menu items, buttons, etc.) and common strings -->
     <string name="action_settings">Settings</string>
@@ -172,5 +182,8 @@
     <string name="about">About</string>
     <string name="settings">Settings</string>
     <string name="favorites">Favorites</string>
+    <string name="more">More</string>
+    <string name="movies">Movies</string>
+    <string name="tv_series">TV Series</string>
 
 </resources>

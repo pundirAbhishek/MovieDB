@@ -1,14 +1,11 @@
 package com.android.moviedb.ui
 
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.android.moviedb.BuildConfig
 import com.android.moviedb.network.*
 import com.android.moviedb.util.API_KEY
-import com.android.moviedb.util.CATEGORY_UPCOMING
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -29,25 +26,25 @@ class DetailViewModel(movie: Movie) : ViewModel() {
         get() = _status
 
     // The internal MutableLiveData MovieVideos that stores the result of the request
-    private val _movieVideos = MutableLiveData<MovieVideosResponse>()
+    private val _movieVideos = MutableLiveData<VideosResponse>()
     // The external immutable LiveData for the request MovieVideos
-    val movieVideos: LiveData<MovieVideosResponse>
+    val movieVideos: LiveData<VideosResponse>
         get() = _movieVideos
 
     // The internal MutableLiveData MovieReviews that stores the result of the request
-    private val _movieReviews = MutableLiveData<MovieReviewsResponse>()
+    private val _movieReviews = MutableLiveData<PagedResponse<Review>>()
     // The external immutable LiveData for the request MovieReviews
-    val movieReviews: LiveData<MovieReviewsResponse>
+    val movieReviews: LiveData<PagedResponse<Review>>
         get() = _movieReviews
 
     // Play Video in Youtube
-    private val _intentToPlayVideo = MutableLiveData<MovieVideo>()
-    val intentToPlayVideo: LiveData<MovieVideo>
+    private val _intentToPlayVideo = MutableLiveData<Video>()
+    val intentToPlayVideo: LiveData<Video>
         get() = _intentToPlayVideo
 
     // View Review through url
-    private val _intentToViewReview = MutableLiveData<MovieReview>()
-    val intentToViewReview: LiveData<MovieReview>
+    private val _intentToViewReview = MutableLiveData<Review>()
+    val intentToViewReview: LiveData<Review>
         get() = _intentToViewReview
 
     // The internal MutableLiveData MovieDetails that stores the result of the request
@@ -57,15 +54,15 @@ class DetailViewModel(movie: Movie) : ViewModel() {
         get() = _movieDetails
 
     // The internal MutableLiveData MovieDetails that stores the result of the request
-    private val _movieCast = MutableLiveData<CastResponse>()
+    private val _movieCast = MutableLiveData<CreditsResponse<Cast>>()
     // The external immutable LiveData for the request MovieDetails
-    val movieCast: LiveData<CastResponse>
+    val movieCast: LiveData<CreditsResponse<Cast>>
         get() = _movieCast
 
     // The internal MutableLiveData MovieDetails that stores the result of the request
-    private val _similarMovies = MutableLiveData<MoviesResponse>()
+    private val _similarMovies = MutableLiveData<PagedResponse<Movie>>()
     // The external immutable LiveData for the request MovieDetails
-    val similarMovies: LiveData<MoviesResponse>
+    val similarMovies: LiveData<PagedResponse<Movie>>
         get() = _similarMovies
 
 
@@ -104,7 +101,7 @@ class DetailViewModel(movie: Movie) : ViewModel() {
     }
 
 
-    fun intentToPlayVideo(video: MovieVideo) {
+    fun intentToPlayVideo(video: Video) {
         _intentToPlayVideo.value = video
     }
 
@@ -112,7 +109,7 @@ class DetailViewModel(movie: Movie) : ViewModel() {
         _intentToPlayVideo.value = null
     }
 
-    fun intentToViewReview(review: MovieReview) {
+    fun intentToViewReview(review: Review) {
         _intentToViewReview.value = review
     }
 

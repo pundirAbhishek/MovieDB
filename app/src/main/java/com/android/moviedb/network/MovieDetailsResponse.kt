@@ -21,8 +21,11 @@ data class MovieDetailsResponse(
     @Json(name = "vote_average") val voteAverage: Double,
     @Json(name = "release_date") val releaseDate: String,
 
-    val videos: MovieVideosResponse,
-    val credits: CastResponse,
-    val reviews: MovieReviewsResponse,
-    val similar: MoviesResponse
+
+    // Appended Video, Reviews, Similar Movies , Credits(Cast, Crew) in Movie Details Request
+
+    val videos: VideosResponse,
+    val credits: CreditsResponse<Cast>,
+    val reviews: PagedResponse<Review>,
+    val similar: PagedResponse<Movie>
 )

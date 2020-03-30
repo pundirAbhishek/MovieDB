@@ -27,6 +27,15 @@
         android:label="@string/favorites"
         tools:layout="@layout/fragment_favourites" />
     <fragment
+        android:id="@+id/drawer_item_tv"
+        android:name="com.android.moviedb.ui.TvSeriesFragment"
+        android:label="@string/tv_series"
+        tools:layout="@layout/fragment_tv_series">
+        <action
+            android:id="@+id/action_drawer_item_tv_to_tvSeriesDetailFragment"
+            app:destination="@id/tvSeriesDetailFragment" />
+    </fragment>
+    <fragment
         android:id="@+id/action_about_overflow"
         android:name="com.android.moviedb.ui.AboutFragment"
         android:label="@string/about"
@@ -36,4 +45,13 @@
         android:name="com.android.moviedb.ui.SettingsFragment"
         android:label="@string/settings"
         tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/tvSeriesDetailFragment"
+        android:name="com.android.moviedb.ui.TvSeriesDetailFragment"
+        android:label="@string/tv_series"
+        tools:layout="@layout/fragment_series_detail">
+        <argument
+            android:name="selectedSeries"
+            app:argType="com.android.moviedb.network.TvSeries" />
+    </fragment>
 </navigation>
