@@ -185,5 +185,8 @@
     <string name="more">More</string>
     <string name="movies">Movies</string>
     <string name="tv_series">TV Series</string>
+    <string name="overview">Overview</string>
+    <string name="videos">Videos</string>
+    <string name="reviews">Reviews</string>
 
 </resources>

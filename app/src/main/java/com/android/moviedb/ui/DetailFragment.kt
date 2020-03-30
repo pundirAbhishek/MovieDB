@@ -10,9 +10,7 @@ import android.widget.Toast.LENGTH_SHORT
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 
-import com.android.moviedb.R
 import com.android.moviedb.databinding.FragmentDetailBinding
-import com.android.moviedb.databinding.FragmentHomeBinding
 
 /**
  * A simple [Fragment] subclass.
@@ -41,6 +39,7 @@ class DetailFragment : Fragment() {
             if (it != null) {
                 // TODO Send to the youtube app
                 Toast.makeText(context, "Video", LENGTH_SHORT).show()
+                viewModel.intentToPlayVideoCompleted()
             }
         })
 
@@ -48,19 +47,19 @@ class DetailFragment : Fragment() {
             if (it != null) {
                 // TODO Send to TMDB to view the reviews
                 Toast.makeText(context, "Review", LENGTH_SHORT).show()
-                viewModel.intentToPlayVideoCompleted()
+                viewModel.intentToViewReviewCompleted()
             }
         })
 
         binding.movieVideos.apply {
             setHasFixedSize(true)
-            adapter = MovieVideosAdapter(MovieVideosAdapter.OnClickListener {
+            adapter = VideosAdapter(VideosAdapter.OnClickListener {
                 viewModel.intentToPlayVideo(it)
             })
         }
 
         binding.movieReviews.apply {
-            adapter = MovieReviewsAdapter(MovieReviewsAdapter.OnClickListener {
+            adapter = ReviewsAdapter(ReviewsAdapter.OnClickListener {
                 viewModel.intentToViewReview(it)
             })
         }

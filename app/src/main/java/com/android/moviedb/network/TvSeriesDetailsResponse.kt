@@ -14,7 +14,7 @@ data class TvSeriesDetailsResponse(
     val name: String,
     @Json(name = "episode_run_time") val episodeRunTime: List<Int>,
     @Json(name = "number_of_episodes") val noOfEpisodes: Int,
-    @Json(name = "no_of_seasons") val noOfSeasons: Int,
+    @Json(name = "number_of_seasons") val noOfSeasons: Int,
     @Json(name = "poster_path") val posterPath: String?,
     @Json(name = "vote_count") val voteCount: Int,
     @Json(name = "vote_average") val voteAverage: Double,

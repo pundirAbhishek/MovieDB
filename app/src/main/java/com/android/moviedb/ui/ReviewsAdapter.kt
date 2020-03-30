@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.moviedb.databinding.ListItemReviewBinding
 import com.android.moviedb.network.Review
 
-class MovieReviewsAdapter(val onClickListener: OnClickListener) :
-    androidx.recyclerview.widget.ListAdapter<Review, MovieReviewsAdapter.MovieReviewViewHolder>(
+class ReviewsAdapter(private val onClickListener: OnClickListener) :
+    androidx.recyclerview.widget.ListAdapter<Review, ReviewsAdapter.ReviewViewHolder>(
         DiffCallback
     ) {
 
@@ -23,12 +23,12 @@ class MovieReviewsAdapter(val onClickListener: OnClickListener) :
     }
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieReviewViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReviewViewHolder {
         val view = ListItemReviewBinding.inflate(LayoutInflater.from(parent.context))
-        return MovieReviewViewHolder(view)
+        return ReviewViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: MovieReviewViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ReviewViewHolder, position: Int) {
         val review = getItem(position)
         holder.itemView.setOnClickListener {
             onClickListener.onClick(review)
@@ -36,7 +36,7 @@ class MovieReviewsAdapter(val onClickListener: OnClickListener) :
         holder.bind(review)
     }
 
-    class MovieReviewViewHolder(private val binding: ListItemReviewBinding) :
+    class ReviewViewHolder(private val binding: ListItemReviewBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(review: Review) {
             binding.review = review

@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.moviedb.databinding.ListItemVideoBinding
 import com.android.moviedb.network.Video
 
-class MovieVideosAdapter(private val onClickListener: OnClickListener) :
-    androidx.recyclerview.widget.ListAdapter<Video, MovieVideosAdapter.MovieVideoViewHolder>(
+class VideosAdapter(private val onClickListener: OnClickListener) :
+    androidx.recyclerview.widget.ListAdapter<Video, VideosAdapter.VideoViewHolder>(
         DiffCallback
     ) {
 
@@ -23,12 +23,12 @@ class MovieVideosAdapter(private val onClickListener: OnClickListener) :
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieVideoViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VideoViewHolder {
         val view = ListItemVideoBinding.inflate(LayoutInflater.from(parent.context))
-        return MovieVideoViewHolder(view)
+        return VideoViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: MovieVideoViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: VideoViewHolder, position: Int) {
         val video = getItem(position)
         holder.itemView.setOnClickListener {
             onClickListener.onClick(video)
@@ -37,7 +37,7 @@ class MovieVideosAdapter(private val onClickListener: OnClickListener) :
     }
 
 
-    class MovieVideoViewHolder(private val binding: ListItemVideoBinding) :
+    class VideoViewHolder(private val binding: ListItemVideoBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(video: Video) {
             binding.video = video

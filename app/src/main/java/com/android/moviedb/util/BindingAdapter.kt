@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.moviedb.R
 import com.android.moviedb.network.*
 import com.android.moviedb.ui.HomeMoviesAdapter
-import com.android.moviedb.ui.MovieReviewsAdapter
-import com.android.moviedb.ui.MovieVideosAdapter
+import com.android.moviedb.ui.ReviewsAdapter
+import com.android.moviedb.ui.VideosAdapter
 import com.android.moviedb.ui.TvSeriesAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -43,13 +43,13 @@ fun bindRecyclerView(recyclerView: RecyclerView, data: PagedResponse<Movie>?) {
 
 @BindingAdapter("listVideos")
 fun bindVideosRecyclerView(recyclerView: RecyclerView, videos: VideosResponse?) {
-    val adapter = recyclerView.adapter as MovieVideosAdapter
+    val adapter = recyclerView.adapter as VideosAdapter
     adapter.submitList(videos?.videos)
 }
 
 @BindingAdapter("listReviews")
 fun bindReviewsRecyclerView(recyclerView: RecyclerView, reviews: PagedResponse<Review>?) {
-    val adapter = recyclerView.adapter as MovieReviewsAdapter
+    val adapter = recyclerView.adapter as ReviewsAdapter
     adapter.submitList(reviews?.results)
 }
 

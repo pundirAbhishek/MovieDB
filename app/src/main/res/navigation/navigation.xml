@@ -49,7 +49,7 @@
         android:id="@+id/tvSeriesDetailFragment"
         android:name="com.android.moviedb.ui.TvSeriesDetailFragment"
         android:label="@string/tv_series"
-        tools:layout="@layout/fragment_series_detail">
+        tools:layout="@layout/fragment_tv_series_detail">
         <argument
             android:name="selectedSeries"
             app:argType="com.android.moviedb.network.TvSeries" />
